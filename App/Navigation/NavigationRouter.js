@@ -17,8 +17,8 @@ class NavigationRouter extends Component {
       <Router>
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-            <Scene   key='launchScreen' component={LaunchScreen} title='LaunchScreen' hideNavBar />
-            <Scene  initial key='locatorScreen' component={BitcoinLocatorScreen} title='LaunchScreen' hideNavBar />
+            <Scene key='launchScreen' component={LaunchScreen} title='LaunchScreen' hideNavBar />
+            <Scene initial key='locatorScreen' component={BitcoinLocatorScreen} title='arra' hideNavBar  />
           </Scene>
         </Scene>
       </Router>
