@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Text, View } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 import MapView from 'react-native-maps'
@@ -23,47 +23,39 @@ class BitcoinLocatorScreen extends React.Component {
     }
   }
 
-
-
-  componentDidMount() {
+  componentDidMount () {
     navigator.geolocation.getCurrentPosition(
     (position) => {
       this.state.initialPosition.latitude = position.coords.latitude
       this.state.initialPosition.longitude = position.coords.longitude
-
-      this.setState({initialPosition : this.state.initialPosition});
-      console.tron.log(this.state);
-
-      //console.tron.log(position.coords);
-
+      this.setState({initialPosition: this.state.initialPosition})
     },
     (error) => alert(JSON.stringify(error)),
     {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-  );
+  )
   }
-
 
   render () {
     return (
-        <View style={styles.container}>
-          <MapView
-            style={styles.map}
-            initialRegion={{
-              latitude: this.state.initialPosition.latitude,
-              longitude: this.state.initialPosition.longitude,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421
-            }}
+      <View style={styles.container}>
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: this.state.initialPosition.latitude,
+            longitude: this.state.initialPosition.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421
+          }}
           >
-            <MapView.Marker
-              coordinate={this.state.initialPosition}
-              title={"Some title"}
-              description={"Some description"}
-            >
-              <Icon name="bitcoin" size={30} color="#900" />
-            </MapView.Marker>
+          <MapView.Marker
+            coordinate={this.state.initialPosition}
+            title={'Some title'}
+            description={'Some description'}
+          >
+            <Icon name='bitcoin' size={30} color='#900' />
+          </MapView.Marker>
         </MapView>
-        </View>
+      </View>
     )
   }
 }

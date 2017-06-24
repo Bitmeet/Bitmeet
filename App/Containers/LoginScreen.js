@@ -12,8 +12,8 @@ import {
 import { connect } from 'react-redux'
 import Styles from './Styles/LoginScreenStyles'
 import {Images, Metrics} from '../Themes'
-import LoginActions from '../Redux/LoginRedux'
-import { Actions as NavigationActions } from 'react-native-router-flux'
+import LoginActions, { isLoggedIn } from '../Redux/LoginRedux'
+import { Actions as NavigationActions, ActionConst } from 'react-native-router-flux'
 
 class LoginScreen extends React.Component {
   static propTypes = {
@@ -42,6 +42,10 @@ class LoginScreen extends React.Component {
     // Did the login attempt complete?
     if (this.isAttempting && !newProps.fetching) {
       NavigationActions.pop()
+    }
+
+    if (newProps.isLoggedIn) {
+      NavigationActions.locatorScreen({type: ActionConst.RESET})
     }
   }
 
@@ -156,7 +160,8 @@ class LoginScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    fetching: state.login.fetching
+    fetching: state.login.fetching,
+    isLoggedIn: isLoggedIn(state.login)
   }
 }
 
