@@ -44,7 +44,7 @@ class LoginScreen extends React.Component {
       NavigationActions.pop()
     }
 
-    if(newProps.isLoggedIn) {
+    if (newProps.isLoggedIn) {
       NavigationActions.locatorScreen({type: ActionConst.RESET})
     }
   }
@@ -161,7 +161,7 @@ class LoginScreen extends React.Component {
 const mapStateToProps = (state) => {
   return {
     fetching: state.login.fetching,
-    isLoggedIn: isLoggedIn(state.login),
+    isLoggedIn: isLoggedIn(state.login)
   }
 }
 

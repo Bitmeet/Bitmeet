@@ -19,7 +19,7 @@ export const INITIAL_STATE = Immutable({
   username: null,
   jwt: null,
   error: null,
-  fetching: false,
+  fetching: false
 })
 
 /* ------------- Reducers ------------- */
