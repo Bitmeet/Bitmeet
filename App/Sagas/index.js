@@ -30,9 +30,9 @@ export default function * root () {
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(LoginTypes.LOGIN_REQUEST, login, api),
-    takeLatest(OpenScreenTypes.OPEN_SCREEN, openScreen),
+    takeLatest(OpenScreenTypes.OPEN_SCREEN, openScreen)
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
+    // takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
   ]
 }
