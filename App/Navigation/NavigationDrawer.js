@@ -4,6 +4,7 @@ import { DefaultRenderer, Actions as NavigationActions } from 'react-native-rout
 import DrawerContent from '../Containers/DrawerContent'
 import { connect } from 'react-redux'
 import Styles from './Styles/NavigationDrawerStyles'
+import { isLoggedIn } from '../Redux/LoginRedux'
 
 /* *******************
 * Documentation: https://github.com/root-two/react-native-drawer
@@ -20,7 +21,9 @@ class NavigationDrawer extends Component {
         open={state.open}
         onOpen={() => NavigationActions.refresh({key: state.key, open: true})}
         onClose={() => NavigationActions.refresh({key: state.key, open: false})}
-        content={<DrawerContent />}
+        content={<DrawerContent 
+                    userName={this.props.userName}
+                    isLoggedIn={this.props.isLoggedIn}/>}
         styles={Styles}
         tapToClose
         openDrawerOffset={0.2}
@@ -42,6 +45,8 @@ NavigationDrawer.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
+    userName: state.login.username,
+    isLoggedIn: isLoggedIn(state.login)
   }
 }
 
