@@ -39,10 +39,10 @@ class DrawerContent extends Component {
   }
 
   handleLogout = () => {
-     this.toggleDrawer()
-     this.props.LoginActions.logout()
+    this.toggleDrawer()
+    this.props.LoginActions.logout()
   }
-    
+
   handleRegistration = () => {
     this.toggleDrawer()
     NavigationActions.login()
@@ -145,7 +145,6 @@ DrawerAction.contextTypes = {
   onPress: React.PropTypes.func
 }
 
-
 const mapStateToProps = (state) => {
   return {
   }
@@ -153,7 +152,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-     LoginActions: bindActionCreators(LoginActions, dispatch)
+    LoginActions: bindActionCreators(LoginActions, dispatch)
   }
 }
 
