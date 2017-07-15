@@ -2,7 +2,7 @@
 const images = {
   logo: require('../Images/ir.png'),
   clearLogo: require('../Images/top_logo.png'),
-  edit: require('../Images/Icons/edit.png'),  
+  edit: require('../Images/Icons/edit.png'),
   exit: require('../Images/Icons/exit.png'),
   launch: require('../Images/launch-icon.png'),
   login: require('../Images/Icons/login.png'),

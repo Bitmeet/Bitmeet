@@ -25,7 +25,7 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 // we're attempting to login
-export const request = (state, {username}) => state.merge({ fetching: true,username })
+export const request = (state, {username}) => state.merge({ fetching: true, username })
 
 // we've successfully logged in
 export const success = (state, { jwt }) => state.merge({ fetching: false, error: null, jwt })

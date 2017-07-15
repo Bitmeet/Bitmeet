@@ -21,9 +21,9 @@ class NavigationDrawer extends Component {
         open={state.open}
         onOpen={() => NavigationActions.refresh({key: state.key, open: true})}
         onClose={() => NavigationActions.refresh({key: state.key, open: false})}
-        content={<DrawerContent 
-                    userName={this.props.userName}
-                    isLoggedIn={this.props.isLoggedIn}/>}
+        content={<DrawerContent
+          userName={this.props.userName}
+          isLoggedIn={this.props.isLoggedIn} />}
         styles={Styles}
         tapToClose
         openDrawerOffset={0.2}
