@@ -16,7 +16,7 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  username: null,
+  username: 'No User',
   jwt: null,
   error: null,
   fetching: false
