@@ -47,13 +47,7 @@ class BitcoinLocatorScreen extends React.Component {
             longitudeDelta: 0.0421
           }}
           >
-          <MapView.Marker
-            coordinate={this.state.initialPosition}
-            title={'Some title'}
-            description={'Some description'}
-          >
-            <Icon name='bitcoin' size={30} color='#900' />
-          </MapView.Marker>
+
         </MapView>
       </View>
     )
