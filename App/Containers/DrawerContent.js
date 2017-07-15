@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { ScrollView, Image, BackAndroid, View, Text, TouchableOpacity } from 'react-native'
 import styles from './Styles/DrawerContentStyles'
 import { Images, Colors } from '../Themes'
 import { Actions as NavigationActions } from 'react-native-router-flux'
+import LoginActions from '../Redux/LoginRedux'
 
 // third party libs imports
 import Avatar from 'react-native-interactive-avatar'
@@ -35,6 +38,11 @@ class DrawerContent extends Component {
     NavigationActions.login()
   }
 
+  handleLogout = () => {
+     this.toggleDrawer()
+     this.props.LoginActions.logout()
+  }
+    
   handleRegistration = () => {
     this.toggleDrawer()
     NavigationActions.login()
@@ -48,6 +56,7 @@ class DrawerContent extends Component {
         <DrawerFooter
           onExit={this.handlePressExit}
           onLogin={this.handleLogin}
+          onLogout={this.handleLogout}
           onRegister={this.handleRegistration}
           isLoggedIn={this.props.isLoggedIn} />
 
@@ -60,7 +69,7 @@ class DrawerContent extends Component {
 /** Drawer Header View  */
 const DrawerHeader = (props) => {
   return (
-    <View style={[styles.drawerHeader]}>
+    <View style={styles.drawerHeader}>
       <Avatar
         uri={null}
         size={'medium'}
@@ -82,7 +91,6 @@ const Divider = () => {
 }
 /** Drawer Footer View  */
 const DrawerFooter = (props) => {
-  console.tron.log(props)
   return (
     <View style={styles.drawerFooter}>
       {
@@ -98,7 +106,7 @@ const DrawerFooter = (props) => {
               <Divider />
               <DrawerAction action={'My Offers'} uri={Images.offer} onPress={props.onRegister} />
               <Divider />
-              <DrawerAction action={'Logout'} uri={Images.login} onPress={props.onExit} />
+              <DrawerAction action={'Logout'} uri={Images.login} onPress={props.onLogout} />
               <Divider />
             </View>
           }
@@ -118,12 +126,14 @@ const DrawerAction = (props) => {
   )
 }
 
+DrawerFooter.contextTypes = {
+  isLoggedIn: React.PropTypes.bool
+}
+
 DrawerContent.contextTypes = {
   drawer: React.PropTypes.object
 }
-
 // DrawerHeader props
-
 DrawerHeader.contextTypes = {
   userName: React.PropTypes.string
 }
@@ -139,4 +149,16 @@ DrawerAction.contextTypes = {
   onPress: React.PropTypes.func
 }
 
-export default DrawerContent
+
+const mapStateToProps = (state) => {
+  return {
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+     LoginActions: bindActionCreators(LoginActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DrawerContent)
