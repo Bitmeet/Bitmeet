@@ -1,3 +1,4 @@
+import {StyleSheet} from 'react-native'
 import {Colors} from '../../Themes/'
 
 export default {
@@ -23,7 +24,7 @@ export default {
   },
   divider: {
     borderBottomColor: Colors.snow,
-    borderBottomWidth: 0.25
+    borderBottomWidth: StyleSheet.hairlineWidth
   },
   userName: {
     flex: 1,
