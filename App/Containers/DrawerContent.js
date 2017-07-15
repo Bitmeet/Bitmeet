@@ -138,10 +138,6 @@ DrawerHeader.contextTypes = {
   userName: React.PropTypes.string
 }
 
-DrawerHeader.defaultProps = {
-  userName: 'No User'
-}
-
 // DrawerAction props
 DrawerAction.contextTypes = {
   action: React.PropTypes.string,
