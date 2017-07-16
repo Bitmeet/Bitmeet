@@ -37,7 +37,7 @@ export default {
     flexDirection: 'row',
     backgroundColor: Colors.darkOrange
   },
-  drawerFooter: {
+  drawerBody: {
     flex: 7,
     backgroundColor: Colors.navBarOrange,
     marginLeft: 50

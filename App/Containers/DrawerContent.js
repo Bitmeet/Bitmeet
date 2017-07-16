@@ -6,6 +6,7 @@ import styles from './Styles/DrawerContentStyles'
 import { Images, Colors } from '../Themes'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import LoginActions from '../Redux/LoginRedux'
+import I18n from 'react-native-i18n'
 
 // third party libs imports
 import Avatar from 'react-native-interactive-avatar'
@@ -53,7 +54,7 @@ class DrawerContent extends Component {
       <View style={styles.container}>
         <DrawerHeader
           userName={this.props.userName} />
-        <DrawerFooter
+        <DrawerBody
           onExit={this.handlePressExit}
           onLogin={this.handleLogin}
           onLogout={this.handleLogout}
@@ -90,23 +91,23 @@ const Divider = () => {
   )
 }
 /** Drawer Footer View  */
-const DrawerFooter = (props) => {
+const DrawerBody = (props) => {
   return (
-    <View style={styles.drawerFooter}>
+    <View style={styles.drawerBody}>
       {
             !props.isLoggedIn ? <View>
-              <DrawerAction action={'Login'} uri={Images.login} onPress={props.onLogin} />
+              <DrawerAction action={I18n.t('signin')} uri={Images.login} onPress={props.onLogin} />
               <Divider />
-              <DrawerAction action={'Register'} uri={Images.register} onPress={props.onRegister} />
+              <DrawerAction action={I18n.t('signup')} uri={Images.register} onPress={props.onRegister} />
               <Divider />
-              <DrawerAction action={'Exit'} uri={Images.exit} onPress={props.onExit} />
+              <DrawerAction action={I18n.t('exit')} uri={Images.exit} onPress={props.onExit} />
               <Divider />
             </View> : <View>
-              <DrawerAction action={'Edit Details'} uri={Images.edit} onPress={props.onLogin} />
+              <DrawerAction action={I18n.t('editDetails')} uri={Images.edit} onPress={props.onLogin} />
               <Divider />
-              <DrawerAction action={'My Offers'} uri={Images.offer} onPress={props.onRegister} />
+              <DrawerAction action={I18n.t('myOffers')} uri={Images.offer} onPress={props.onRegister} />
               <Divider />
-              <DrawerAction action={'Logout'} uri={Images.login} onPress={props.onLogout} />
+              <DrawerAction action={I18n.t('signout')} uri={Images.login} onPress={props.onLogout} />
               <Divider />
             </View>
           }
@@ -126,7 +127,7 @@ const DrawerAction = (props) => {
   )
 }
 
-DrawerFooter.contextTypes = {
+DrawerBody.contextTypes = {
   isLoggedIn: React.PropTypes.bool
 }
 
