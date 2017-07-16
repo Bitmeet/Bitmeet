@@ -2,7 +2,10 @@
 const images = {
   logo: require('../Images/ir.png'),
   clearLogo: require('../Images/top_logo.png'),
+  edit: require('../Images/Icons/edit.png'),
+  exit: require('../Images/Icons/exit.png'),
   launch: require('../Images/launch-icon.png'),
+  login: require('../Images/Icons/login.png'),
   ready: require('../Images/your-app.png'),
   ignite: require('../Images/ignite_logo.png'),
   igniteClear: require('../Images/ignite-logo-transparent.png'),
@@ -19,7 +22,10 @@ const images = {
   chevronRight: require('../Images/Icons/chevron-right.png'),
   hamburger: require('../Images/Icons/hamburger.png'),
   backButton: require('../Images/Icons/back-button.png'),
-  closeButton: require('../Images/Icons/close-button.png')
+  closeButton: require('../Images/Icons/close-button.png'),
+  placeHolder: require('../Images/placeHolder.png'),
+  register: require('../Images/Icons/register.png'),
+  offer: require('../Images/Icons/offer.png')
 }
 
 export default images
