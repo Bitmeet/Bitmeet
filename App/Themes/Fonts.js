@@ -50,6 +50,10 @@ const style = {
   description: {
     fontFamily: type.base,
     fontSize: size.medium
+  },
+  footer: {
+    fontFamily: type.emphasis,
+    fontSize: size.small
   }
 }
 

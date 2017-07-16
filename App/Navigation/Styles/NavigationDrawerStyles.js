@@ -2,7 +2,7 @@ import {Colors} from '../../Themes/'
 
 export default {
   drawer: {
-    backgroundColor: Colors.navBarOrange
+    backgroundColor: Colors.basicOrange
   },
   main: {
     backgroundColor: Colors.clear

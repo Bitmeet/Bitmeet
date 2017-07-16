@@ -39,7 +39,7 @@ export default {
   },
   drawerBody: {
     flex: 7,
-    backgroundColor: Colors.navBarOrange,
+    backgroundColor: Colors.basicOrange,
     marginLeft: 50
   },
   logo: {
