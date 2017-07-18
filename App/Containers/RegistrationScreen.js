@@ -1,17 +1,19 @@
 import React from 'react'
-import { View, ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { View, ScrollView, Text, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import { Fumi } from 'react-native-textinput-effects'
+import { Actions as NavigationActions } from 'react-native-router-flux'
+import Fumi from '../Components/FumiTextInput'
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
+import EntypoIcon from 'react-native-vector-icons/Entypo'
+import Avatar from 'react-native-interactive-avatar'
 import RoundedButton from '../Components/RoundedButton'
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
 
 // Localization
 import I18n from 'react-native-i18n'
 
 // Styles
 import styles from './Styles/RegistrationScreenStyle'
+import { Images } from '../Themes'
 
 class RegistrationScreenScreen extends React.Component {
 
@@ -22,7 +24,16 @@ class RegistrationScreenScreen extends React.Component {
           <KeyboardAvoidingView behavior='position'>
             <Text style={styles.title}>{I18n.t('registration')}</Text>
             <Text style={styles.description}>{I18n.t('registrationDescripcion')}</Text>
-            <View style={styles.avatar} />
+            <Avatar
+              uri={null}
+              size={'medium'}
+              placeholderSource={Images.placeHolder}
+              resizeMode={'contain'}
+              interactive
+              onChange={this.handleImageChange}
+              style={styles.avatar}
+            />
+            <Text style={styles.description}>{I18n.t('addPhoto')}</Text>
           </KeyboardAvoidingView>
           <View style={styles.inputsBox}>
             <Fumi
@@ -51,21 +62,32 @@ class RegistrationScreenScreen extends React.Component {
             />
             <Fumi
               height={35}
+              label={I18n.t('name')}
+              iconClass={EntypoIcon}
+              iconName={'user'}
+              iconColor={'#f95a25'}
+              iconSize={20}
+            />
+            <Fumi
+              height={35}
               label={I18n.t('phonenumber')}
-              iconClass={FontAwesomeIcon}
+              iconClass={EntypoIcon}
               iconName={'mobile'}
               iconColor={'#f95a25'}
-              iconSize={30}
+              iconSize={20}
             />
           </View>
-          <RoundedButton text={I18n.t('signIn')} />
+          <RoundedButton buttonStyle={styles.buttonStyle} text={I18n.t('signIn')} />
         </ScrollView>
         <View style={styles.footer}>
-          <Text style={styles.footerText}>
-            {I18n.t('alreadySignIn')}
-            <Text style={{fontWeight: 'bold'}}>{I18n.t('loginArrow')}</Text>
-
-          </Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.footerText}>
+              {I18n.t('alreadySignIn')}
+            </Text>
+            <TouchableOpacity onPress={() => NavigationActions.login({type: 'replace'})}>
+              <Text style={[styles.footerText, {fontWeight: 'bold'}]}>{I18n.t('loginArrow')}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     )
