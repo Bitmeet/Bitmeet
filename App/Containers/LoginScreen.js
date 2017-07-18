@@ -103,6 +103,10 @@ class LoginScreen extends React.Component {
     return (
       <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[Styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps='always'>
         <Image source={Images.logo} style={[Styles.topLogo, this.state.topLogo]} />
+        <View style={Styles.loginSummary}>
+          <Text>Sign-in</Text>
+          <Text style={Styles.SummaryText}>Lorem Ipsum is simply dummy text of the  printing and typesetting industry.</Text>
+        </View>
         <View style={Styles.form}>
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>Username</Text>
@@ -152,7 +156,6 @@ class LoginScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-
       </ScrollView>
     )
   }

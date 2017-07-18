@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../Themes'
+import { Colors, Fonts, Metrics } from '../../Themes'
 
 export default StyleSheet.create({
   container: {
+    flex: 1,
     paddingTop: 70,
-    backgroundColor: Colors.background
+    backgroundColor: Colors.snow
   },
   form: {
     backgroundColor: Colors.snow,
@@ -41,9 +42,16 @@ export default StyleSheet.create({
     backgroundColor: Colors.panther,
     padding: 6
   },
+  loginSummary : {
+    alignItems : 'center'
+
+  },
   loginText: {
     textAlign: 'center',
     color: Colors.silver
+  },
+  SummaryText : {
+    fontSize: Fonts.size.tiny,
   },
   topLogo: {
     alignSelf: 'center',
