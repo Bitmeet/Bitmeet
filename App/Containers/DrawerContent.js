@@ -46,7 +46,7 @@ class DrawerContent extends Component {
 
   handleRegistration = () => {
     this.toggleDrawer()
-    NavigationActions.login()
+    NavigationActions.registration()
   }
 
   render () {

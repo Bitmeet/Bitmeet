@@ -24,9 +24,10 @@ const colors = {
   banner: '#5F3E63',
   text: '#E0D7E5',
   darkOrange: '#ddb640',
-  liteBlue: '#447ee9ff',
-  liteRed: '#d75757ff',
-  navBarOrange: '#e9c044ff'
+  basicOrange: '#e9c044',
+  ink: '#747474',
+  liteBlue: '#447ee9',
+  liteRed: '#d75757'
 }
 
 export default colors
