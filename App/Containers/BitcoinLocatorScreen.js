@@ -3,7 +3,14 @@ import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 import MapView from 'react-native-maps'
-import Icon from 'react-native-vector-icons/Zocial'
+import ActionButton from 'react-native-action-button';
+import EntypoIcon from 'react-native-vector-icons/Entypo';
+import EvilIcon from 'react-native-vector-icons/EvilIcons';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import { Colors } from '../Themes'
+import I18n from 'react-native-i18n'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -49,6 +56,17 @@ class BitcoinLocatorScreen extends React.Component {
           >
 
         </MapView>
+        <ActionButton buttonColor={Colors.navBarOrange} icon={<Icon name="more-vert" style={styles.actionButtonIcon} size={30}/>} >
+          <ActionButton.Item buttonColor={Colors.liteRed} title={I18n.t("putAnOffer")} onPress={() => console.log("notes tapped!")}>
+            <FontAwesomeIcon name="dollar" style={styles.actionButtonIcon} size={30}/>
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor={Colors.aqua} title={I18n.t("search")} onPress={() => {}}>
+            <EvilIcon name="search" style={styles.actionButtonIcon} size={30}/>
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor={Colors.liteBlue} title={I18n.t("showAsList")} onPress={() => {}}>
+            <EntypoIcon name="list" style={styles.actionButtonIcon} size={30}/>
+          </ActionButton.Item>
+        </ActionButton>
       </View>
     )
   }

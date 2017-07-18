@@ -6,5 +6,8 @@ export default StyleSheet.create({
   },
   map: {
     ...StyleSheet.absoluteFillObject
+  },
+    actionButtonIcon: {
+    color: 'white',
   }
 })

@@ -28,5 +28,7 @@
    "exit": "Exit",
    "signout": "Sign-out",
    "editDetails": "Edit Details",
-   "myOffers": "My Offers"
+   "myOffers": "My Offers",
+   "putAnOffer": "Put an offer",
+   "showAsList": "Show as list"
 }
