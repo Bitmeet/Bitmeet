@@ -1,4 +1,5 @@
 const colors = {
+  aqua: '#88dbc4ff',
   background: '#1F0808',
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
@@ -24,7 +25,9 @@ const colors = {
   text: '#E0D7E5',
   darkOrange: '#ddb640',
   basicOrange: '#e9c044',
-  ink: '#747474'
+  ink: '#747474',
+  liteBlue: '#447ee9',
+  liteRed: '#d75757'
 }
 
 export default colors
