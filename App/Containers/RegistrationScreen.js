@@ -20,10 +20,10 @@ class RegistrationScreenScreen extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.containerView}>
+        <ScrollView contentContainerStyle={styles.containerView} keyboardShouldPersistTaps='always'>
           <KeyboardAvoidingView behavior='position'>
             <Text style={styles.title}>{I18n.t('registration')}</Text>
-            <Text style={styles.description}>{I18n.t('registrationDescripcion')}</Text>
+            <Text style={styles.description}>{I18n.t('registrationDescription')}</Text>
             <Avatar
               uri={null}
               size={'medium'}
@@ -41,7 +41,7 @@ class RegistrationScreenScreen extends React.Component {
               label={I18n.t('username')}
               iconClass={FontAwesomeIcon}
               iconName={'user-circle-o'}
-              iconColor={'#f95a25'}
+              iconColor={'#000'}
               iconSize={20}
             />
             <Fumi
@@ -49,7 +49,7 @@ class RegistrationScreenScreen extends React.Component {
               label={I18n.t('password')}
               iconClass={FontAwesomeIcon}
               iconName={'key'}
-              iconColor={'#f95a25'}
+              iconColor={'#000'}
               iconSize={20}
             />
             <Fumi
@@ -57,7 +57,7 @@ class RegistrationScreenScreen extends React.Component {
               label={I18n.t('email')}
               iconClass={FontAwesomeIcon}
               iconName={'envelope-o'}
-              iconColor={'#f95a25'}
+              iconColor={'#000'}
               iconSize={20}
             />
             <Fumi
@@ -65,7 +65,7 @@ class RegistrationScreenScreen extends React.Component {
               label={I18n.t('name')}
               iconClass={EntypoIcon}
               iconName={'user'}
-              iconColor={'#f95a25'}
+              iconColor={'#000'}
               iconSize={20}
             />
             <Fumi
@@ -73,11 +73,11 @@ class RegistrationScreenScreen extends React.Component {
               label={I18n.t('phonenumber')}
               iconClass={EntypoIcon}
               iconName={'mobile'}
-              iconColor={'#f95a25'}
+              iconColor={'#000'}
               iconSize={20}
             />
           </View>
-          <RoundedButton buttonStyle={styles.buttonStyle} text={I18n.t('signIn')} />
+          <RoundedButton buttonStyle={styles.buttonStyle} text={I18n.t('signup')} />
         </ScrollView>
         <View style={styles.footer}>
           <View style={{flexDirection: 'row'}}>

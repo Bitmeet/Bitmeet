@@ -1,52 +1,76 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../Themes'
+import { Colors, Fonts, Metrics, ApplicationStyles } from '../../Themes'
 
 export default StyleSheet.create({
-  container: {
-    paddingTop: 70,
-    backgroundColor: Colors.background
+  ...ApplicationStyles.screen,
+  containerView: {
+    paddingTop: Metrics.navBarHeight,
+    paddingHorizontal: 40
   },
-  form: {
-    backgroundColor: Colors.snow,
-    margin: Metrics.baseMargin,
-    borderRadius: 4
+  inputsBox: {
+    elevation: 1,
+    borderStyle: 'solid'
+  },
+  title: {
+    ...Fonts.style.h5,
+    color: Colors.ink,
+    alignSelf: 'center'
+  },
+  description: {
+    ...Fonts.style.regular,
+    color: Colors.ink,
+    alignSelf: 'center'
+  },
+  space: {
+    marginTop: 100
+  },
+  buttonStyle: {
+    height: 45,
+    borderRadius: 10,
+    marginVertical: Metrics.baseMargin,
+    backgroundColor: Colors.basicOrange,
+    justifyContent: 'center'
+  },
+  forgot: {
+    alignSelf: 'flex-end',
+    marginBottom: 30
+  },
+  footer: {
+    height: 30,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.basicOrange
+  },
+  footerText: {
+    ...Fonts.style.footer,
+    color: Colors.snow
+  },
+  buttonImage: {
+    height: 30,
+    width: 30,
+    resizeMode: 'center',
+    marginTop: 10
+  },
+  facebookButton: {
+    height: 50,
+    width: 50,
+    marginHorizontal: 20,
+    alignItems: 'center',
+    borderRadius: 100,
+    backgroundColor: '#3c63a4'
+  },
+  googleButton: {
+    height: 50,
+    width: 50,
+    marginHorizontal: 20,
+    alignItems: 'center',
+    borderRadius: 100,
+    backgroundColor: '#de5342'
   },
   row: {
-    paddingVertical: Metrics.doubleBaseMargin,
-    paddingHorizontal: Metrics.doubleBaseMargin
-  },
-  rowLabel: {
-    color: Colors.charcoal
-  },
-  textInput: {
-    height: 40,
-    color: Colors.coal
-  },
-  textInputReadonly: {
-    height: 40,
-    color: Colors.steel
-  },
-  loginRow: {
-    paddingBottom: Metrics.doubleBaseMargin,
-    paddingHorizontal: Metrics.doubleBaseMargin,
-    flexDirection: 'row'
-  },
-  loginButtonWrapper: {
-    flex: 1
-  },
-  loginButton: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: Colors.charcoal,
-    backgroundColor: Colors.panther,
-    padding: 6
-  },
-  loginText: {
-    textAlign: 'center',
-    color: Colors.silver
-  },
-  topLogo: {
-    alignSelf: 'center',
-    resizeMode: 'contain'
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 10
   }
 })
