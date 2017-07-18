@@ -3,7 +3,6 @@ import {
   View,
   ScrollView,
   Text,
-  TextInput,
   TouchableOpacity,
   Image,
   Keyboard,
@@ -107,7 +106,6 @@ class LoginScreen extends React.Component {
     const { username, password } = this.state
     const { fetching } = this.props
     const editable = !fetching
-    const textInputStyle = editable ? styles.textInput : styles.textInputReadonly
     return (
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.containerView}>
@@ -168,23 +166,6 @@ class LoginScreen extends React.Component {
               <Image style={styles.buttonImage} source={Images.googlePlus} />
             </TouchableOpacity>
           </View>
-          {/*
-              <TextInput
-                ref='password'
-                style={textInputStyle}
-                value={password}
-                editable={editable}
-                keyboardType='default'
-                returnKeyType='go'
-                autoCapitalize='none'
-                autoCorrect={false}
-                secureTextEntry
-                onChangeText={this.handleChangePassword}
-                underlineColorAndroid='transparent'
-                onSubmitEditing={this.handlePressLogin}
-                placeholder='Password' />
-            </View>
- */}
         </ScrollView>
         <View style={styles.footer}>
           <View style={{flexDirection: 'row'}}>
