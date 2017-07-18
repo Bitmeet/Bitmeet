@@ -25,6 +25,8 @@ const images = {
   closeButton: require('../Images/Icons/close-button.png'),
   placeHolder: require('../Images/placeHolder.png'),
   register: require('../Images/Icons/register.png'),
+  facebook: require('../Images/Icons/facebook.png'),
+  googlePlus: require('../Images/Icons/googlePlus.png'),
   offer: require('../Images/Icons/offer.png')
 }
 

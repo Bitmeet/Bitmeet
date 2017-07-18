@@ -10,10 +10,18 @@ import {
   LayoutAnimation
 } from 'react-native'
 import { connect } from 'react-redux'
-import Styles from './Styles/LoginScreenStyles'
 import {Images, Metrics} from '../Themes'
 import LoginActions, { isLoggedIn } from '../Redux/LoginRedux'
 import { Actions as NavigationActions, ActionConst } from 'react-native-router-flux'
+import { Fumi } from 'react-native-textinput-effects'
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
+import RoundedButton from '../Components/RoundedButton'
+
+// Localization
+import I18n from 'react-native-i18n'
+
+// Styles
+import styles from './Styles/LoginScreenStyles'
 
 class LoginScreen extends React.Component {
   static propTypes = {
@@ -29,8 +37,8 @@ class LoginScreen extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      username: 'reactnative@infinite.red',
-      password: 'password',
+      username: '',
+      password: '',
       visibleHeight: Metrics.screenHeight,
       topLogo: { width: Metrics.screenWidth }
     }
@@ -99,20 +107,24 @@ class LoginScreen extends React.Component {
     const { username, password } = this.state
     const { fetching } = this.props
     const editable = !fetching
-    const textInputStyle = editable ? Styles.textInput : Styles.textInputReadonly
+    const textInputStyle = editable ? styles.textInput : styles.textInputReadonly
     return (
-      <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[Styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps='always'>
-        <Image source={Images.logo} style={[Styles.topLogo, this.state.topLogo]} />
-        <View style={Styles.loginSummary}>
-          <Text>Sign-in</Text>
-          <Text style={Styles.SummaryText}>Lorem Ipsum is simply dummy text of the  printing and typesetting industry.</Text>
-        </View>
-        <View style={Styles.form}>
-          <View style={Styles.row}>
-            <Text style={Styles.rowLabel}>Username</Text>
-            <TextInput
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.containerView}>
+          {/* <Image source={Images.logo} style={[Styles.topLogo, this.state.topLogo]} /> */}
+          <Text style={styles.title}>{I18n.t('signin')}</Text>
+          <Text style={styles.description}>{I18n.t('signinDescription')}</Text>
+          <View style={styles.space} />
+          <View style={styles.inputsBox}>
+            <Fumi
+              height={35}
+              label={I18n.t('username')}
+              iconClass={FontAwesomeIcon}
+              iconName={'user-circle-o'}
+              iconColor={'#000'}
+              iconSize={20}
+              // TextInput props
               ref='username'
-              style={textInputStyle}
               value={username}
               editable={editable}
               keyboardType='default'
@@ -120,16 +132,18 @@ class LoginScreen extends React.Component {
               autoCapitalize='none'
               autoCorrect={false}
               onChangeText={this.handleChangeUsername}
-              underlineColorAndroid='transparent'
               onSubmitEditing={() => this.refs.password.focus()}
-              placeholder='Username' />
-          </View>
-
-          <View style={Styles.row}>
-            <Text style={Styles.rowLabel}>Password</Text>
-            <TextInput
+              maxLength={40}
+            />
+            <Fumi
+              height={35}
+              label={I18n.t('password')}
+              iconClass={FontAwesomeIcon}
+              iconName={'key'}
+              iconColor={'#000'}
+              iconSize={20}
+              // TextInput props
               ref='password'
-              style={textInputStyle}
               value={password}
               editable={editable}
               keyboardType='default'
@@ -138,25 +152,51 @@ class LoginScreen extends React.Component {
               autoCorrect={false}
               secureTextEntry
               onChangeText={this.handleChangePassword}
-              underlineColorAndroid='transparent'
               onSubmitEditing={this.handlePressLogin}
-              placeholder='Password' />
+              maxLength={30}
+            />
           </View>
-
-          <View style={[Styles.loginRow]}>
-            <TouchableOpacity style={Styles.loginButtonWrapper} onPress={this.handlePressLogin}>
-              <View style={Styles.loginButton}>
-                <Text style={Styles.loginText}>Sign In</Text>
-              </View>
+          <RoundedButton buttonStyle={styles.buttonStyle} text={I18n.t('signIn')} onPress={this.handlePressLogin} />
+          <Text style={styles.forgot}>{I18n.t('forgotPassword')}</Text>
+          <Text style={styles.description}>{I18n.t('or')}</Text>
+          <Text style={styles.description}>{I18n.t('loginWith')}</Text>
+          <View style={styles.row}>
+            <TouchableOpacity style={styles.facebookButton} onPress={() => alert('Will be supported in near future')}>
+              <Image style={styles.buttonImage} source={Images.facebook} />
             </TouchableOpacity>
-            <TouchableOpacity style={Styles.loginButtonWrapper} onPress={NavigationActions.pop}>
-              <View style={Styles.loginButton}>
-                <Text style={Styles.loginText}>Cancel</Text>
-              </View>
+            <TouchableOpacity style={styles.googleButton} onPress={() => alert('Will be supported in near future')}>
+              <Image style={styles.buttonImage} source={Images.googlePlus} />
+            </TouchableOpacity>
+          </View>
+          {/*
+              <TextInput
+                ref='password'
+                style={textInputStyle}
+                value={password}
+                editable={editable}
+                keyboardType='default'
+                returnKeyType='go'
+                autoCapitalize='none'
+                autoCorrect={false}
+                secureTextEntry
+                onChangeText={this.handleChangePassword}
+                underlineColorAndroid='transparent'
+                onSubmitEditing={this.handlePressLogin}
+                placeholder='Password' />
+            </View>
+ */}
+        </ScrollView>
+        <View style={styles.footer}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.footerText}>
+              {I18n.t('alreadySignedup')}
+            </Text>
+            <TouchableOpacity onPress={() => NavigationActions.registration({type: 'replace'})}>
+              <Text style={[styles.footerText, {fontWeight: 'bold'}]}>{I18n.t('signupArrow')}</Text>
             </TouchableOpacity>
           </View>
         </View>
-      </ScrollView>
+      </View>
     )
   }
 }
