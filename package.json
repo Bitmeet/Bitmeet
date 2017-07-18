@@ -39,6 +39,7 @@
     "react-native-maps": "0.13.0",
     "react-native-router-flux": "3.38.0",
     "react-native-vector-icons": "^4.1.1",
+    "react-native-textinput-effects": "git+https://github.com/Bitmeet/react-native-textinput-effects.git",
     "react-redux": "5.0.4",
     "redux": "3.6.0",
     "redux-persist": "4.6.0",
